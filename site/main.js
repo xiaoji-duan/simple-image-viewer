@@ -6,6 +6,20 @@ $(document).ready(function () {
     return result;
   }
 
+  function render() {
+    var $image = $("#image");
+
+    $image.viewer({
+      inline: true,
+      viewed: function () {
+        $image.viewer("zoomTo", 1);
+      },
+    });
+
+    // Get the Viewer.js instance after initialized
+    var viewer = $image.data("viewer");
+  }
+
   $.get(getContextPath() + "/getImages", function (data) {
     var images = JSON.parse(data)["images"];
     for (i = 0; i < images.length; i++) {
@@ -22,20 +36,8 @@ $(document).ready(function () {
         images[i] +
         '"/></li>';
     }
+
+    // View a list of images
+    $("#images").viewer();
   });
-
-  var $image = $("#image");
-
-  $image.viewer({
-    inline: true,
-    viewed: function () {
-      $image.viewer("zoomTo", 1);
-    },
-  });
-
-  // Get the Viewer.js instance after initialized
-  var viewer = $image.data("viewer");
-
-  // View a list of images
-  $("#images").viewer();
 });
