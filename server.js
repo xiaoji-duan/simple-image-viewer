@@ -8,6 +8,8 @@ http
   .createServer(function (req, res) {
     const filepath = url.parse(req.url, true).pathname;
 
+    console.log("origin filepath => " + filepath);
+
     var filename = ".";
 
     if (ctxPath && filepath.indexOf(ctxPath) != 0) {
@@ -17,10 +19,12 @@ http
       filename += "/site";
     }
     filename += filepath;
-    console.log("filepath => " + filepath);
+
     if (filepath == "/") {
       filename += "index.html";
     }
+
+    console.log("filepath, filename => " + filepath + ", " + filename);
 
     // check for only API call
     if (filename == "./site/getImages") {
