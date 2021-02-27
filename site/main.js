@@ -6,7 +6,7 @@ $(document).ready(function () {
     return result;
   }
 
-  $.get("/" + getContextPath() + "/getImages", function (data) {
+  $.get(getContextPath() + "/getImages", function (data) {
     var images = JSON.parse(data)["images"];
     for (i = 0; i < images.length; i++) {
       document.getElementById("imageList").innerHTML +=
