@@ -1,5 +1,3 @@
-import Viewer from "viewerjs";
-
 $(document).ready(function () {
   function getContextPath() {
     var pathName = document.location.pathname;
@@ -26,14 +24,18 @@ $(document).ready(function () {
     }
   });
 
-  // View an image
-  const viewer = new Viewer(document.getElementById("image"), {
+  var $image = $("#image");
+
+  $image.viewer({
     inline: true,
-    viewed() {
-      viewer.zoomTo(1);
+    viewed: function () {
+      $image.viewer("zoomTo", 1);
     },
   });
 
+  // Get the Viewer.js instance after initialized
+  var viewer = $image.data("viewer");
+
   // View a list of images
-  const gallery = new Viewer(document.getElementById("images"));
+  $("#images").viewer();
 });
