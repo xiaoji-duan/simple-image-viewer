@@ -17,7 +17,7 @@ http
       filename += "/site";
     }
     filename += filepath;
-
+    console.log("filepath => " + filepath);
     if (filepath == "/") {
       filename += "index.html";
     }
