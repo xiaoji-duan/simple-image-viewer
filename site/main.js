@@ -1,3 +1,5 @@
+import Viewer from "viewerjs";
+
 $(document).ready(function () {
   function getContextPath() {
     var pathName = document.location.pathname;
@@ -9,12 +11,29 @@ $(document).ready(function () {
   $.get(getContextPath() + "/getImages", function (data) {
     var images = JSON.parse(data)["images"];
     for (i = 0; i < images.length; i++) {
-      document.getElementById("imageList").innerHTML +=
-        '<a href="images/' +
+      //   document.getElementById("imageList").innerHTML +=
+      //     '<a href="images/' +
+      //     images[i] +
+      //     '"> <image src="images/' +
+      //     images[i] +
+      //     '"/></a>';
+      document.getElementById("images").innerHTML +=
+        '<li><image src="images/' +
         images[i] +
-        '"> <image src="images/' +
+        '"  alt="' +
         images[i] +
-        '"/></a>';
+        '"/></li>';
     }
   });
 });
+
+// View an image
+const viewer = new Viewer(document.getElementById("image"), {
+  inline: true,
+  viewed() {
+    viewer.zoomTo(1);
+  },
+});
+
+// View a list of images
+const gallery = new Viewer(document.getElementById("images"));

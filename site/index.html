@@ -1,14 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Simple Image Viewer</title>
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.0/viewer.min.css"
+      integrity="sha512-1cfqrTRQ8V1TnQsSu97+x7PoylALHKOQuwpFaa6lwe6lo5EOUmGNmX3LBq/yxUokfGaUtWkjZJGmuXqG5THgdA=="
+      crossorigin="anonymous"
+    />
     <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.9.0/viewer.min.js"
+      integrity="sha512-0goo56vbVLOJt9J6TMouBm2uE+iPssyO+70sdrT+J5Xbb5LsdYs31Mvj4+LntfPuV+VlK0jcvcinWQG5Hs3pOg=="
+      crossorigin="anonymous"
+    ></script>
     <script src="main.js" type="text/javascript"></script>
-</head>
-<body>
-    <div id="imageList">
+  </head>
+  <body>
+    <div>
+      <img id="image" src="picture.jpg" alt="Picture" />
     </div>
-</body>
+
+    <div>
+      <ul id="images">
+        <li><img src="picture-1.jpg" alt="Picture 1" /></li>
+        <li><img src="picture-2.jpg" alt="Picture 2" /></li>
+        <li><img src="picture-3.jpg" alt="Picture 3" /></li>
+      </ul>
+    </div>
+    <div id="imageList"></div>
+  </body>
 </html>
